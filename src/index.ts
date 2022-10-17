@@ -91,6 +91,7 @@ export class Storage {
     for await (const [key, value] of iterator) {
       stream.received(value);
     }
+    stream.received(null);
   }
 
   stream(keyStart: string, keyEnd: string = keyStart): EntryStream {
