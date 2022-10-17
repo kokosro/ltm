@@ -16,3 +16,13 @@ test('test', async () => {
     _updatedAt: expect.any(Number),
   });
 });
+
+test('list', async () => {
+  const storage = new Storage(`/tmp/${Date.now()}`);
+  const id = 'test-key-1';
+  const type = 'test-type-1';
+  const value = { test: 'value' };
+  await storage.save(type, id, value);
+  const result = await storage.list(type);
+  expect(result.length).toEqual(1);
+});
