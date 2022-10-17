@@ -25,5 +25,4 @@ test('list', async () => {
   await storage.save(type, id, value);
   const result = await storage.list(type);
   expect(result.length).toEqual(1);
-  
 });
